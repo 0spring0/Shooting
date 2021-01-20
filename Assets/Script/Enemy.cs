@@ -19,7 +19,10 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Ball")
+        {
+            Score.score += 1000;
             Destroy(gameObject);
+        }
         if (other.gameObject.tag == "Wall")
             _mycollider.isTrigger = false;
     }

@@ -35,6 +35,7 @@ public class Racket : MonoBehaviour
         //ボールをラケットの向いている方向に振った速度に応じて力を与える
         if (collision.gameObject.tag == "Ball")
         {
+            Score.score += 100;
             collision.rigidbody.AddForce(-(_late_position - transform.position) * _speed,ForceMode.Impulse);
         }
     }
