@@ -647,14 +647,26 @@
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.XR.Management">
+      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Subsystem.Registration">
+      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.XR.Oculus">
+      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.XR.Oculus.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.Oculus.Editor">
+      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.XR.Oculus.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -665,26 +677,14 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.Management">
-      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Subsystem.Registration">
-      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.Management.Editor">
       <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
       <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
@@ -692,14 +692,14 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
       <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.XR.Oculus">
-      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.XR.Oculus.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.Oculus.Editor">
-      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/Unity.XR.Oculus.Editor.dll</HintPath>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/Game/Desktop/Shooting/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

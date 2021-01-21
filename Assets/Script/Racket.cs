@@ -12,9 +12,6 @@ public class Racket : MonoBehaviour
     private float _speed;
     private Vector3 _late_position;
 
-    [SerializeField]
-    private GameObject _prefub;
-
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +22,6 @@ public class Racket : MonoBehaviour
     private void LateUpdate()
     {
         _late_position = transform.position;
-
-        if (Input.GetKeyDown(KeyCode.Return))
-            Instantiate(_prefub);
     }
 
     private void OnCollisionEnter(Collision collision)
