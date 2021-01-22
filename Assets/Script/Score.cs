@@ -14,6 +14,11 @@ public class Score : MonoBehaviour
     private int _max_score;
     private int _high_score = 0;
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         score = Mathf.Min(score, _max_score);

@@ -10,6 +10,8 @@ public class Racket : MonoBehaviour
     private BoxCollider _box_collider;
     [SerializeField]
     private float _speed;
+    [SerializeField]
+    private float _bounds;
     private Vector3 _late_position;
 
 
@@ -26,11 +28,17 @@ public class Racket : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //ボールをラケットの向いている方向に振った速度に応じて力を与える
+        //ボールをラケットの振った方向に振った速度に応じて力を与える
         if (collision.gameObject.tag == "Ball")
         {
             Score.score += 100;
-            collision.rigidbody.AddForce(-(_late_position - transform.position) * _speed,ForceMode.Impulse);
+
+            //ラケットの方向を計算
+            float dot = Vector3.Dot(transform.up, collision.transform.position - transform.position);
+
+            //跳ね返し
+            collision.rigidbody.AddForce(transform.forward * Mathf.Sign(dot) * _bounds, ForceMode.Impulse);
+            collision.rigidbody.AddForce((transform.position - _late_position) * _speed,ForceMode.Impulse);
         }
     }
 }

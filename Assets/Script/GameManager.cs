@@ -18,10 +18,19 @@ public class GameManager : MonoBehaviour
     private GameObject _target;
     private GameObject _ball;
     private bool _is_start;
+
+
+    //ゲーム開始時にActiveを変更するオブジェクト
+    [SerializeField]
+    private GameObject _score;
+    [SerializeField]
+    private GameObject _start_text;
     // Start is called before the first frame update
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
+        _score.SetActive(false);
+        _start_text.SetActive(true);
         _is_start = false;
         _target = null;
         _ball = null;
@@ -36,13 +45,22 @@ public class GameManager : MonoBehaviour
 
         //的の生成
         GenerateTarget();
+        //弾の生成
+        GenerateBall();
     }
 
 
     private bool IsStart()
     {
+        if (_is_start == true)
+            return true;
+
         if (_ovr_grabbable.isGrabbed == true)
+        {
             _is_start = true;
+            _score.SetActive(true);
+            _start_text.SetActive(false);
+        }
 
         return _is_start;
     }
@@ -60,8 +78,17 @@ public class GameManager : MonoBehaviour
         if (_ball != null)
             return;
 
-        //左手を握ったとき
-        if (OVRInput.Get(OVRInput.RawButton.LHandTrigger))
-            _ball = Instantiate(_ball_prefub, OVRInput.GetLocalControllerPosition(OVRInput.Controller.LHand), OVRInput.GetLocalControllerRotation(OVRInput.Controller.LHand));
+        var racket_controller = _ovr_grabbable.grabbedBy.OVRController;
+        //ラケットを持つ手とは逆の手を握ったとき
+        if (racket_controller == OVRInput.Controller.LTouch)
+        {
+            if (OVRInput.Get(OVRInput.RawButton.RHandTrigger))
+                _ball = Instantiate(_ball_prefub, OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch), OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch));
+        }
+        else if(racket_controller == OVRInput.Controller.RTouch)
+        {
+            if (OVRInput.Get(OVRInput.RawButton.LHandTrigger))
+                _ball = Instantiate(_ball_prefub, OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch), OVRInput.GetLocalControllerRotation(OVRInput.Controller.LTouch));
+        }
     }
 }
