@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,7 +26,9 @@ public class GameManager : MonoBehaviour
     private GameObject _score;
     [SerializeField]
     private GameObject _start_text;
-    // Start is called before the first frame update
+    [SerializeField]
+    private TextMesh _hold_hand;
+
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
@@ -34,11 +37,15 @@ public class GameManager : MonoBehaviour
         _is_start = false;
         _target = null;
         _ball = null;
+        _hold_hand.text = "";
     }
 
     // Update is called once per frame
     void Update()
     {
+        //シーンの再スタート
+        Restert();
+
         //ゲームの開始確認
         if (IsStart() == false)
             return;
@@ -70,25 +77,34 @@ public class GameManager : MonoBehaviour
         if (_target != null)
             return;
 
-        Vector3 generate_pos = new Vector3(Random.Range(-2.0F, 2.0F), Random.Range(-2.0F, 2.0F), Random.value);
+        Vector3 generate_pos = new Vector3(Random.Range(-3.0F, 3.0F), Random.Range(-2.0F, 2.0F), Random.value);
         _target = Instantiate(_generate_prefub, generate_pos, Quaternion.identity);
     }
     private void GenerateBall()
     {
+        _hold_hand.text = "";
         if (_ball != null)
             return;
 
-        var racket_controller = _ovr_grabbable.grabbedBy.OVRController;
-        //ラケットを持つ手とは逆の手を握ったとき
-        if (racket_controller == OVRInput.Controller.LTouch)
+        if (_ovr_grabbable.grabbedBy == null)
+            return;
+
+        _hold_hand.text = "Hold Shoulder";
+
+        //左ショルダーが押されたときにボール生成
+        if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger))
+            _ball = Instantiate(_ball_prefub);
+    }
+
+
+    private void Restert()
+    {
+        //積んだ時用のリセット処理
+        if (OVRInput.GetDown(OVRInput.RawButton.Start))
         {
-            if (OVRInput.Get(OVRInput.RawButton.RHandTrigger))
-                _ball = Instantiate(_ball_prefub, OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch), OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch));
-        }
-        else if(racket_controller == OVRInput.Controller.RTouch)
-        {
-            if (OVRInput.Get(OVRInput.RawButton.LHandTrigger))
-                _ball = Instantiate(_ball_prefub, OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch), OVRInput.GetLocalControllerRotation(OVRInput.Controller.LTouch));
+            //現在のシーンを再読み込み
+            var active_scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(active_scene.name);
         }
     }
 }

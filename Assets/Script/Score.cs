@@ -21,7 +21,6 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
-        score = Mathf.Min(score, _max_score);
         _high_score = Mathf.Max(_high_score, score);
         _score_text.text = "Score:" + score;
         _high_text.text = "HighScore:" + _high_score;
